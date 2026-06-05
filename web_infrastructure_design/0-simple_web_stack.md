@@ -1,6 +1,6 @@
 # 0. Simple web stack
 
-![Simple Web Stack - One server infrastructure](../assests/Simple%20Web%20Stack%20-%20One%20server%20infrastructure%20%283%29.png)
+![Simple Web Stack - One server infrastructure](../assests/Simple%20Web%20Stack%20-%20One%20server%20infrastructure.png)
 
 ## Description
 
@@ -23,8 +23,10 @@ on a LAMP-style stack (Linux + Nginx + MySQL + application code).
   serves resources (here, the website) to clients over a network.
 - **Role of the domain name**: a human-readable name (`foobar.com`) that maps to
   the server IP, so users don't have to remember `8.8.8.8`.
-- **Type of DNS record for `www`**: the `www` in `www.foobar.com` is a
-  **CNAME** record (an alias), ultimately resolving to the IP through an A record.
+- **Type of DNS record for `www`**: since `www.foobar.com` points directly to the
+  server IP `8.8.8.8`, the `www` record is an **A record** (an A record maps a
+  name to an IPv4 address). A CNAME could not be used here because a CNAME points
+  to another domain name, never directly to an IP.
 - **Role of the web server (Nginx)**: receives HTTP requests, serves static
   files, and forwards dynamic requests to the application server.
 - **Role of the application server (PHP-FPM)**: executes the application code
